@@ -8,6 +8,9 @@
     "start": "next start"
   },
   "dependencies": {
+    "bluebird": "^3.7.2",
+    "fs": "0.0.1-security",
+    "lowdb": "^1.0.0",
     "next": "10.0.3",
     "next-connect": "^0.9.1",
     "react": "17.0.1",

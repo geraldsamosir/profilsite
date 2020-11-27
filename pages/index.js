@@ -73,7 +73,7 @@ export default function Home(props) {
             return(
               <li>
                 <div>
-                   <img src={d.covers['115']}/> <br/>
+                   <img src={d.covers['404']}/> <br/>
                    <span>{d.name}</span>
 
                 </div>

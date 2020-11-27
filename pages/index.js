@@ -59,8 +59,7 @@ export default function Home(props) {
               <div>
                  {d.name} <br/>
                  {d.joinDate} - {d.exitDate === null ? 'Present': d.exitDate} <br/>
-                 {d.Roles} <br/>
-                 {d.JobDesc}
+                 {d.Roles}
               </div>
             </li>)
           })
@@ -95,6 +94,7 @@ export async function getServerSideProps(ctx) {
   Jobs = await Jobs.json()
   let portfolio = await fetch(`${baseUrl}/portfolio`)
   portfolio = await portfolio.json()
+  portfolio.data.projects = portfolio.data.projects.filter((d)=> d.name !== 'Beauty Preview')
   return {
     props: {
       profile,

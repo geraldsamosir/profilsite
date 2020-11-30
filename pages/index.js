@@ -328,13 +328,24 @@ export default function Home(props) {
 }
 
 
+const fetchparams = {
+  method: "GET",
+  headers: {
+    // update with your user-agent
+    "User-Agent":
+      "Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/84.0.4147.89 Safari/537.36",
+    Accept: "application/json; charset=UTF-8",
+  },
+
+}
+
 export async function getStaticProps() {
   const baseUrl =  process.env.env !== 'production'? process.env.API_URL_DEV :process.env.API_URL_PROD
-  let profile  = await fetch(`${baseUrl}/profile`);
+  let profile  = await fetch(`${baseUrl}/profile`,{...fetchparams});
   profile = await profile.json();
-  let Jobs = await fetch(`${baseUrl}/jobs`)
+  let Jobs = await fetch(`${baseUrl}/jobs`, {...fetchparams})
   Jobs = await Jobs.json()
-  let portfolio = await fetch(`${baseUrl}/portfolio`)
+  let portfolio = await fetch(`${baseUrl}/portfolio`, {...fetchparams})
   portfolio = await portfolio.json()
   portfolio.data.projects = portfolio.data.projects.filter((d)=> d.name !== 'Beauty Preview')
   return {

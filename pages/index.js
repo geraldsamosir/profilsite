@@ -1,17 +1,11 @@
 import Head from 'next/head';
-import profiledata  from  '../db/profile';
-import jobsdata  from  '../db/jobs';
-import BehanceService  from  '../services/behance';
-
-
-
 import { motion } from "framer-motion";
 import { useState, useEffect } from 'react';
 import { library } from '@fortawesome/fontawesome-svg-core'
 import { faLinkedin, faWhatsapp, faGithub } from '@fortawesome/free-brands-svg-icons'
 import { faCheckSquare, faCoffee } from '@fortawesome/free-solid-svg-icons';
 
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 
 
 
@@ -347,9 +341,12 @@ const fetchparams = {
 
 export async function getStaticProps() {
   const baseUrl =  process.env.env !== 'production'? process.env.API_URL_DEV :process.env.API_URL_PROD
-  const profile  = {data: profiledata()};
-  const Jobs = { data: jobsdata()}
-  let portfolio = {data: await BehanceService.getall()}
+  let profile  = await fetch(`${baseUrl}/profile`,{...fetchparams});
+  profile = await profile.json();
+  let Jobs = await fetch(`${baseUrl}/jobs`, {...fetchparams})
+  Jobs = await Jobs.json()
+  let portfolio = await fetch(`${baseUrl}/portfolio`, {...fetchparams})
+  portfolio = await portfolio.json()
   portfolio.data.projects = portfolio.data.projects.filter((d)=> d.name !== 'Beauty Preview')
   return {
     props: {

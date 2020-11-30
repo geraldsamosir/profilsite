@@ -79,7 +79,6 @@ export default function Home(props) {
           text-align: left;
           background: white;
           padding-left: 2%;
-          padding-right: 8%;
           margin :1%;
           max-height: ${size.height};
           overflow-y: scroll;
@@ -105,6 +104,7 @@ export default function Home(props) {
           display: inline;
           float : left;
           width: 100%;
+          padding:0%
         }
         ul li {
           padding: 2%;

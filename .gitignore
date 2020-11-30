@@ -32,3 +32,6 @@ yarn-error.log*
 #yarn
 yarn.lock
 package-lock.json
+
+./out_function
+./out_publish

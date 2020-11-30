@@ -314,7 +314,7 @@ export default function Home(props) {
             {
               props.portfolio.data.projects.map((d)=>{
                 return(
-                  <li style={{display:"inline", float: 'left',padding: (size.width > 1000)?'3%': '0%', width: (size.width <= 1000)?'45%': '25%'}} >
+                  <li style={{display:"inline", float: 'left',padding: (size.width > 1000)?'3%': '0%', width: (size.width <= 1000)?'45%': '25%', marginBottom: '2%', height: '200px'}} >
                     <div >
                       <center>
                       <img src={d.covers['202']}/> <br/>

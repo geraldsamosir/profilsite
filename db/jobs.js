@@ -13,7 +13,7 @@ export default ()=> ({
       "name": "AXIATA DIGITAL LABS",
       "joinDate": "Otk 2019",
       "Roles": "Senior Frontend Developer",
-      "exitDate": "Nov 202",
+      "exitDate": "Nov 2020",
       "JobDesc": `Job Desc: \n
                 - Develop PMGM XL Axiata Dashborad \n
                 - Develop DCP XL Axiata Dashboard \n
@@ -79,9 +79,9 @@ export default ()=> ({
     {
       "id": "5",
       "name": "MEDAN ELEKTRONIK",
-      "joinDate": "Feb 2018",
+      "joinDate": "Sep 2014",
       "Roles": "Fullstack WebDeveloper",
-      "exitDate": "Sep 2018",
+      "exitDate": "Feb 2018",
       "JobDesc": `Job Desc: \n
                 - Develop PMGM XL Axiata Dashborad \n
                 - Develop DCP XL Axiata Dashboard \n

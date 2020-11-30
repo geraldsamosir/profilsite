@@ -1,1 +1,0 @@
-next must build this website using gatsbyjs

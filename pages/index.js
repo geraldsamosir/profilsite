@@ -209,6 +209,7 @@ export default function Home(props) {
             <div className="circle large shade3"></div>
             <div className="circle medium shade4"></div>
             <div className="circle small shade5"></div>
+
         </div>
         <div className="maincontent">
           <div className="content">

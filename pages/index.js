@@ -328,7 +328,7 @@ export default function Home(props) {
 }
 
 
-export async function getStaticProps(ctx) {
+export async function getStaticProps() {
   const baseUrl =  process.env.env !== 'production'? process.env.API_URL_DEV :process.env.API_URL_PROD
   let profile  = await fetch(`${baseUrl}/profile`);
   profile = await profile.json();

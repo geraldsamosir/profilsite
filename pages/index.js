@@ -78,8 +78,7 @@ export default function Home(props) {
         .content {
           text-align: left;
           background: white;
-          padding-left: 2%;
-          margin :1%;
+          margin :${size.width <= 1000? '-5%':'1%'};
           max-height: ${size.height};
           overflow-y: scroll;
           box-shadow: 5px 5px 8px 5px rgba(0,0,0,0.2);
@@ -89,9 +88,10 @@ export default function Home(props) {
         .maincontent {
           #background: #fafafa;
           padding-left: 5%;
-          padding-right: 10%;
+          padding-right: 5%;
           padding-top: 3%;
           padding-bottom: 3%;
+          width: ${size.width <= 768 ? '100%': ''};
           max-height: ${size.height};
           overflow-y: scroll;
 
@@ -114,6 +114,10 @@ export default function Home(props) {
           box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
           transition: 0.3s;
 
+        }
+        .porfolio {
+          width: 45%;
+          display: inline
         }
         body{
           background: #3399ff;
@@ -310,8 +314,8 @@ export default function Home(props) {
             {
               props.portfolio.data.projects.map((d)=>{
                 return(
-                  <li style={{display:"inline", float: 'left',padding: (size.width > 1000)?'3%': '0%', width: (size.width > 1000)?'18%': '100%'}}>
-                    <div>
+                  <li style={{display:"inline", float: 'left',padding: (size.width > 1000)?'3%': '0%', width: (size.width <= 1000)?'45%': '25%'}} >
+                    <div >
                       <center>
                       <img src={d.covers['202']}/> <br/>
                       <span>{d.name}</span>

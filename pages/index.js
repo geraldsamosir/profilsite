@@ -78,7 +78,8 @@ export default function Home(props) {
         .content {
           text-align: left;
           background: white;
-          padding: 2%;
+          padding-left: 2%;
+          padding-right: 8%;
           margin :1%;
           max-height: ${size.height};
           overflow-y: scroll;

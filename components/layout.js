@@ -1,6 +1,13 @@
-import  { useState, useEffect, cloneElement, Children, isValidElement, createContext } from 'react';
-import Head from 'next/head'
+import  { 
+  useState,
+  useEffect,
+  cloneElement,
+  Children,
+  isValidElement,
+  createContext
+} from 'react';
 
+import Head from 'next/head'
 
 import {
     Page
@@ -17,16 +24,16 @@ export default function Layout({ children }) {
     const [pageTitle, setPagetitle] = useState('')
   
     useEffect(() => {
-        setScreenWidtht(window.innerWidth)
+      setScreenWidtht(window.innerWidth)
     }, []);
 
     const childrenWithProps = Children.map(children, child => {
-        if (isValidElement(child)) {
-          return cloneElement(child, { PageTitleContext });
-        }
-        return child;
-      });
-    
+      if (isValidElement(child)) {
+        return cloneElement(child, { PageTitleContext });
+      }
+      return child;
+    });
+
     return (
         <Page className='max-w-4xl mx-auto lg:max-w-md' style={{margin: screenWidth > MAX_SCREEN_SIZE ? '0 35%': '0 auto' }}>
         <Head>
@@ -35,7 +42,7 @@ export default function Layout({ children }) {
         </Head>
         <PageTitleContext.Provider value={[pageTitle, setPagetitle]}>
             <Navigation title={pageTitle} MAX_SCREEN_SIZE={MAX_SCREEN_SIZE}/>
-        {childrenWithProps }
+            {childrenWithProps }
         </PageTitleContext.Provider>
         </Page>
     )

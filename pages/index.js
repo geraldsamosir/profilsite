@@ -36,10 +36,10 @@ export default function Home({ PageTitleContext, NavigationPosition }) {
       <br/>
       <span>
          <center className='flex justify-center '>
-           <a href='https://api.whatsapp.com/send?phone=6282168207251' target={'_blank'}><FaWhatsapp className="w-6 h-6 mx-2" /></a>
-           <a href='https://github.com/geraldsamosir' target={'_blank'}><SiGithub className="w-6 h-6 mx-2" /></a>
-           <a href='mailto:geralddeveloper95@gmail.com' target={'_blank'}><SiGmail className="w-6 h-6 mx-2" /></a>
-           <a href='https://www.linkedin.com/in/gerald-halomoan-samosir-34b11611b/' target={'_blank'}><FaLinkedin className="w-6 h-6  mx-2" /></a>
+           <a href='https://api.whatsapp.com/send?phone=6282168207251' target={'_blank'} rel={'noreferrer'} ><FaWhatsapp className="w-6 h-6 mx-2" /></a>
+           <a href='https://github.com/geraldsamosir' target={'_blank'} rel={'noreferrer'} ><SiGithub className="w-6 h-6 mx-2" /></a>
+           <a href='mailto:geralddeveloper95@gmail.com' target={'_blank'} rel={'noreferrer'} ><SiGmail className="w-6 h-6 mx-2" /></a>
+           <a href='https://www.linkedin.com/in/gerald-halomoan-samosir-34b11611b/' target={'_blank'} rel={'noreferrer'} ><FaLinkedin className="w-6 h-6  mx-2" /></a>
          </center>
       </span>
     </Block>

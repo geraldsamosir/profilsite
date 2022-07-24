@@ -73,7 +73,7 @@ export default function Navigation ({title='', MAX_SCREEN_SIZE, navigationPositi
 
     return (
         <>
-        <Navbar title={title}  
+        <Navbar title={`${title}`}  
         left={
             <>
             <button onClick={() => setLeftPanelOpened(true)}><HiMenuAlt1 className="w-6 h-6" /></button>

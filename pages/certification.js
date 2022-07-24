@@ -59,7 +59,7 @@ export default function Certification ({ PageTitleContext, NavigationPosition, c
                   </span>
                 </div>
 
-                <Button href={cert.link} target={'_blank'}  raised rounded clear className='mx-auto bg-[#F2F3F5] w-9/12 bottom-0 top-[-15px] '>
+                <Button href={cert.link} target={'_blank'} rel={'noreferrer'}  raised rounded clear className='mx-auto bg-[#F2F3F5] w-9/12 bottom-0 top-[-15px] '>
                     Lihat Credential
                   </Button>
               </Card>

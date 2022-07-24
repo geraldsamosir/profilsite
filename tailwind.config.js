@@ -6,12 +6,20 @@ module.exports = konstaConfig({
     './pages/**/*.{js,ts,jsx,tsx}',
     './components/**/*.{js,ts,jsx,tsx}',
   ],
-  darkMode: 'media', // or 'class'
+  darkMode: 'class', // or 'class'
   theme: {
-    extend: {},
+    extend: {
+       backgroundImage: {
+        'main-background': "url('https://i.im.ge/2022/07/24/FDQ0gW.png')"
+      }
+    },
   },
   variants: {
-    extend: {},
+    extend: {
+      backgroundColor: ['dark'],
+      textColor: ['dark']
+
+    },
   },
   plugins: [],
 });

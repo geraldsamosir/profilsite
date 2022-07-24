@@ -5,24 +5,32 @@ import {
   Block
 } from 'konsta/react';
 
-const Experiences = [
-  {
-    id: 1,
-    image: 'https://i.im.ge/2022/07/24/FDloTM.png',
-    name: 'BIBIT',
-    roles: 'Backend Developer',
-    duration: 'Nov 2020 - Present'
-  },
-  {
-    id: 2,
-    image: 'https://i.im.ge/2022/07/24/FDXlSL.png',
-    name: 'AXIATA DIGITAL LABS',
-    roles: 'Senior Frontend Developer',
-    duration: 'Okt 2019 - Nov 2020'
-    }
-]
+// service
+import { bucket } from '../service/cosmic'
 
-export default function Experience ({ PageTitleContext, NavigationPosition}) {
+
+export async function getStaticProps() {
+  let data = await bucket.getObjects({
+    query: {
+      type: 'experiences'
+    },
+    props: 'slug,title,content,thumbnail,metadata',
+    limit: 20
+  }).catch(e=> { object: [] })
+
+  data = data.objects
+
+  if(data.length) data = data.map(d => ({ id: d.slug, image: d.thumbnail, name: d.metadata.name, roles: d.metadata.roles, duration: d.metadata.duration }))
+
+  return {
+    props: {
+      experienceList: data
+    }
+  }
+}
+
+
+export default function Experience ({ PageTitleContext, NavigationPosition, experienceList}) {
   const  [pageTitle, setPagetitle] = useContext(PageTitleContext)
   const  [navigationPosition, setNavigationPosition] = useContext(NavigationPosition)
 
@@ -37,7 +45,7 @@ export default function Experience ({ PageTitleContext, NavigationPosition}) {
       <Block>
         <div className='flex flex-col space-y-3'>
         {
-            Experiences.map(exp => (
+            experienceList.map(exp => (
                 <Card key={exp.id} className='rounded-lg w-3/4' style={{
                     backgroundColor: '#CFCECF',
                     color: 'black',

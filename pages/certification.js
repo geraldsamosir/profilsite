@@ -6,23 +6,30 @@ import {
   Button
 } from 'konsta/react';
 
-const Certifications = [
-  {
-    id: 1,
-    image: 'https://i.im.ge/2022/07/24/FDXi5h.png',
-    name: 'Python for Datasience Coursera',
-    link: 'https://www.coursera.org/account/accomplishments/verify/UUT25KVVN6ZD?utm_source=ln&utm_medium=certificate&utm_content=cert_image&utm_campaign=sharing_cta&utm_product=course'
-  },
-  {
-    id: 2,
-    image: 'https://i.im.ge/2022/07/24/FDXlSL.png',
-    name: 'AXIATA DIGITAL LABS',
-    roles: 'Senior Frontend Developer',
-    duration: 'Okt 2019 - Nov 2020'
-    }
-]
+// service
+import { bucket } from '../service/cosmic'
 
-export default function Certification ({ PageTitleContext, NavigationPosition}) {
+export async function getStaticProps() {
+  let data = await bucket.getObjects({
+    query: {
+      type: 'certifications'
+    },
+    props: 'slug,title,content,thumbnail,metadata',
+    limit: 20
+  }).catch(e=> { object: [] })
+
+  data = data.objects
+
+  if(data.length) data = data.map(d => ({ id: d.slug, image: d.thumbnail, name: d.metadata.name, link: d.metadata.link }))
+
+  return {
+    props: {
+      certificationList: data
+    }
+  }
+}
+
+export default function Certification ({ PageTitleContext, NavigationPosition, certificationList}) {
   const  [pageTitle, setPagetitle] = useContext(PageTitleContext)
   const  [navigationPosition, setNavigationPosition] = useContext(NavigationPosition)
 
@@ -37,7 +44,7 @@ export default function Certification ({ PageTitleContext, NavigationPosition}) 
       <Block>
         <div className='flex flex-col space-y-3'>
         {
-            Certifications.map(cert => (
+            certificationList.map(cert => (
               <Card key={cert.id} className='rounded-lg w-3/4' style={{
                   margin: '1% auto',
                   background: 'transparent'

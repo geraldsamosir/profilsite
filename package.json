@@ -9,6 +9,7 @@
     "lint": "next lint"
   },
   "dependencies": {
+    "cosmicjs": "^4.1.14",
     "konsta": "^0.11.0",
     "next": "12.2.3",
     "react": "18.2.0",

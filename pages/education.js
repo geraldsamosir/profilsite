@@ -17,7 +17,7 @@ const Educations = [
     id: 2,
     image: 'https://i.im.ge/2022/07/24/FDoUbW.png',
     name: 'SMA N 1 Pangururan',
-    major: 'Sience',
+    major: 'Science',
     duration: '2010 - 2013'
   }
 ]

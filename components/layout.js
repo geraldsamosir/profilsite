@@ -15,6 +15,15 @@ import {
 
 import Navigation from './navigation'
 
+import dynamic from 'next/dynamic'
+
+// const CrispNoSSR =  dynamic(
+//   () => import('./crisp'),
+//   { ssr: false }
+// )
+
+import Crisp from './crisp';
+
 const MAX_SCREEN_SIZE = 900
 
 const PageTitleContext = createContext()
@@ -55,6 +64,7 @@ export default function Layout({ children }) {
               </div>
           </PageTitleContext.Provider>
         </NavigationPosition.Provider>
+        <Crisp/>
         </Page>
     )
   }

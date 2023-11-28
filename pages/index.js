@@ -29,7 +29,7 @@ export default function Home({ PageTitleContext, NavigationPosition }) {
       <p className='text-lg'>Simple is Better &#9749;</p>
       <br/>
       <p className='text-md'>
-      Hi i'm Gerald halomoan Samosir, i have experience to build some app and website in financial serives and video and large stream file as a senior developer i have many experience to solve for scaling dan develop large and small apps and website. if you want to make an app or website you can contact me and we will improve that to be better
+      Hi i'm Gerald halomoan Samosir, i have experience to build some app and website in financial services and video and large stream file as a senior developer i have many experience to solve for scaling dan develop large and small apps and website. if you want to make an app or website you can contact me and we will improve that to be better
       </p>
       <br/>
       <p className='text-md font-bold'>&#129309; Let's connect!</p>

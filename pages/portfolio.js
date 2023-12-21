@@ -11,7 +11,7 @@ import  Behance from '../service/behance'
 
 export async function getStaticProps() {
   let behancePorto =  await Behance.getall().catch(e=> false)
-  behancePorto = !behancePorto ? [] : behancePorto.projects
+  behancePorto = !behancePorto?.length ? [] : behancePorto.projects
 
   if (behancePorto.length) behancePorto =  behancePorto.map(porto => ({ id: porto.id, image: porto.covers['202'], name: porto.name }))
   return {props: {portofolios: behancePorto }}
@@ -33,7 +33,7 @@ export default function Portfolio ({ PageTitleContext, portofolios, NavigationPo
       <Block>
         <div className='flex flex-col space-y-3'>
         {
-            portofolios.map(prt => (
+            portofolios.length && portofolios.map(prt => (
                 <Card key={prt.id} className='rounded-lg w-3/4' style={{
                     backgroundColor: '#CFCECF',
                     color: 'black',
@@ -45,6 +45,10 @@ export default function Portfolio ({ PageTitleContext, portofolios, NavigationPo
                  </span>
                 </Card>
             ))
+        }
+
+        {
+          !portofolios.length && <>under construction ^_^</>
         }
         </div>
       </Block>

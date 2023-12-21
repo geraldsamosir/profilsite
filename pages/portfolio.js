@@ -33,7 +33,7 @@ export default function Portfolio ({ PageTitleContext, portofolios, NavigationPo
       <Block>
         <div className='flex flex-col space-y-3'>
         {
-            portofolios.length && portofolios.map(prt => (
+            portofolios.length ? portofolios.map(prt => (
                 <Card key={prt.id} className='rounded-lg w-3/4' style={{
                     backgroundColor: '#CFCECF',
                     color: 'black',
@@ -44,11 +44,7 @@ export default function Portfolio ({ PageTitleContext, portofolios, NavigationPo
                     <h3 className='font-bold p-5 text-md'>{prt.name}</h3>
                  </span>
                 </Card>
-            ))
-        }
-
-        {
-          !portofolios.length && <>under construction ^_^</>
+            )): <>under construction ^_^</> 
         }
         </div>
       </Block>
